@@ -22,7 +22,7 @@ function App() {
             <Route path="/disease" element={<Disease/>}/>
             <Route path="/medicine" element={<Medicine/>}/>
             <Route path="/profile" element={<Profile/>}/>
-            <Route path="/users/:userId" component={<Profile/>} />
+            <Route path="/users/:userId" component={<Profile />} />
             <Route path="/patientDetails" element={<PatientDetails />} />
           </Routes>
         </main>

@@ -6,11 +6,12 @@ import UserLink from '../../components/userLink';
 function LandingPage() {
   const [users, setUsers] = useState([]);
 
+ 
   useEffect(() => {
-    // Make a GET request to your Flask backend's API endpoint
+    // GET request to Flask API endpoint
     axios.get('/api/users')  // Update the URL as needed
       .then((response) => {
-        setUsers(response.data); // Set the fetched user data in state
+        setUsers(response.data); 
       })
       .catch((error) => {
         console.error('Error fetching user data:', error);
@@ -19,11 +20,20 @@ function LandingPage() {
 }
 
 export const Home = () => {
+
+  const user = {
+    id: 1,
+    patientName: 'John Doe',
+    email: 'johndoe@example.com',
+  };
+
+
+
   return (
     <div>
       <div>Home</div> 
       <div>
-        {/* <UserLink /> */}
+      <UserLink user={user} />
       </div>
     </div>
       
