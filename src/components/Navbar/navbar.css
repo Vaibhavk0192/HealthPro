@@ -1,0 +1,64 @@
+/* *{
+    margin: 0;
+    padding: 0;
+} */
+.landingPageBody {
+    background-color: #ccff00;
+    margin: 2rem 0; 
+}
+
+.navBar-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navBar {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    /* align-items: baseline; */
+}
+
+.navBarList {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-around;
+    align-items: baseline;
+    position: relative;
+}
+
+.navBarLinks {
+    text-decoration: none;
+    color: black;
+}
+
+.navBarLogin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 150px;
+    height: 55px;
+    border-radius: 15px;
+    margin-right: 5px;
+}
+.patnerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00dd04;
+    width: 150px;
+    height: 55px;
+    border-radius: 15px;
+    margin-left:5px;
+}

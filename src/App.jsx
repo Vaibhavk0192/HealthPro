@@ -4,6 +4,7 @@ import { Navbar } from "./components/Navbar/navbar";
 import { Home } from "./pages/HomePage/home";
 import { Disease } from "./pages/DiseasePage/disease";
 import { Medicine } from "./pages/MedicinePage/medicine";
+import { Profile } from "./pages/Profile/profile";
 
 function App() {
   return (
@@ -14,12 +15,12 @@ function App() {
         <header>
           <Navbar />
         </header>
-        <main>
+        <main>    
           <Routes>
-            <Route path="/" element={Home}/>
-            <Route path="/disease" element={Disease}/>
-            <Route path="/medicine" element={Medicine}/>
-            <Route path="/" element={Home}/>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/disease" element={<Disease/>}/>
+            <Route path="/medicine" element={<Medicine/>}/>
+            <Route path="/profile" element={<Profile/>}/>
           </Routes>
         </main>
         </BrowserRouter>

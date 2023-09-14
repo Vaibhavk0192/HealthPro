@@ -3,6 +3,10 @@ import "./disease.css"
 
 export const Disease = () => {
   return (
-    <div>Disease</div>
+    <div className='app__disease-box'>
+      <div className='app__'>
+
+      </div>
+    </div>
   )
 }
