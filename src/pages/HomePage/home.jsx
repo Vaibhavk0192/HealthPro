@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./home.css";
 import axios from "axios";
 import UserLink from "../../components/userLink";
+import { Footer } from "../../components/Footer/footer";
+import { Chatbot } from "../Chatbot/chatbot.jsx";
+// import { Chatbot } from "../Chatbot/chatbot";
 
 function LandingPage() {
   const [users, setUsers] = useState([]);
@@ -99,6 +102,8 @@ export const Home = () => {
         </div>
       </div>
       <div className="spacingLandingPage"></div>
+      <Footer />
+      {/* <Chatbot /> */}
     </div>
   );
 };

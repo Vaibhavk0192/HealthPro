@@ -10,7 +10,7 @@ export const AuthContextProvider = ({ children }) => {
     if (localStorage.getItem("token")) {
       let token = JSON.parse(localStorage.getItem("token"));
       let { sub } = jwtDecode(token);
-
+      console.log(sub);
       return sub;
     }
 

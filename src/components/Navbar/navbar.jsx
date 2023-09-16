@@ -41,7 +41,7 @@ export const Navbar = () => {
 
         {user ? (
           // apply changes here
-          user
+          user.email
         ) : (
           <div className="navBarLogin">
             <Link
