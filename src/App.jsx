@@ -4,6 +4,7 @@ import { Navbar } from "./components/Navbar/navbar";
 import { Home } from "./pages/HomePage/home";
 import { Disease } from "./pages/DiseasePage/disease";
 import { Medicine } from "./pages/MedicinePage/medicine";
+import {Footer} from "./components/Footer/footer"
 import Profile from "./pages/Profile/profile";
 import PatientDetails from "./pages/PatientDetails/patientDetails";
 import { AuthContextProvider } from "./context/AuthContext";
@@ -29,10 +30,12 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
             </Routes>
+            <Footer />
           </main>
         </AuthContextProvider>
       </BrowserRouter>
     </div>
+
   );
 }
 
