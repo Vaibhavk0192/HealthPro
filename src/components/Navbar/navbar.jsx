@@ -6,14 +6,14 @@ export const Navbar = () => {
         <div className="landingPageBody">
             <nav className="navBar">
                 <div className='navBar-title'>
-                    Prima Health Credit
+                    <h1>HealthPro</h1>
                 </div>
-
                 <ul className="navBarList">
-                    <li><Link href="/medicine" className="navBarLinks">Seach Medicine</Link></li>
-                    <li><Link href="/disease" className="navBarLinks">Seach Disease</Link></li>
-                    <li><Link href="/profile" className="navBarLinks">Profile</Link></li>
-                    <li><Link href="" className="navBarLinks">About</Link></li>
+                    <li><Link to="/" className="navBarLinks">Home</Link></li>
+                    <li><Link to="/medicine" className="navBarLinks">Seach Medicine</Link></li>
+                    <li><Link to="/disease" className="navBarLinks">Seach Disease</Link></li>
+                    {/* <li><Link to="/profile" className="navBarLinks">Profile</Link></li> */}
+                    <li><Link to="/PatientDetails" className="navBarLinks">About</Link></li>
                 </ul>
 
                 <div className="navBarLogin">

@@ -12,6 +12,11 @@
     justify-content: center;
     align-items: center;
 }
+.navBar-title>h1{
+    font-size: 1.7vw;
+    font-family: nibpro2;
+    font-weight: 400;
+}
 
 .navBar {
     display: flex;
@@ -27,7 +32,7 @@
     list-style: none;
     width: 40%;
     justify-content: space-around;
-    align-items: baseline;
+    align-items: center;
     position: relative;
 }
 
