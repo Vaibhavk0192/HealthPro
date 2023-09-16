@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'NibPro-Light';
+    src: url('../../../public/fonts/NibPro-Light.ttf') format('truetype');
+
+    font-family: 'NibPro-SemiBold';
+    src: url('../../../public/fonts/NibPro-SemiBold.ttf') format('truetype');
+  }
+  
+
+  .inputfield {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+  }
+  
