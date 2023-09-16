@@ -1,0 +1,138 @@
+.genInfoBox {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    position: relative;
+}
+
+.genInfoBoxImg {
+    height: 70vh;
+    width: 22vw;
+}
+
+.genInfoBoxText {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.genInfoBoxText>div {
+    display: flex;
+    height: 60%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto auto;
+    width: 50%;
+}
+
+.genInfoBoxTextHeading {
+    font-size: 4vw;
+    font-family: 'nibpro2';
+    text-align: center;
+}
+
+.genInfoBoxTextPara {
+    font-family: 'favorit';
+    font-size: 1.2vw;
+}
+
+.genInfoBoxRoller {
+    display: flex;
+}
+
+.spacingLandingPage {
+    height: 50px;
+}
+
+.landingPageBox2 {
+    height: 100vh;
+    background-color: white;
+    width: 80%;
+    margin: auto;
+    border-radius: 50px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.landingPageBox2Img {
+    height: 50vh;
+    width: 25vw;
+}
+
+.landingPageBox2Text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 40%;
+    text-align: start;
+    height: 85%;
+}
+
+.landingPageBox2Text>h1 {
+    font-size: 4.5vw;
+    font-family: nibpro1;
+    /* margin: 40px 0px; */
+    letter-spacing: 2px;
+}
+
+.landingPageBox2Text>p {
+    font-size: 0.9vw;
+    /* margin: 40px 0px; */
+    word-spacing: 0.5px;
+}
+
+.landingPageBox2Selector {
+    display: flex;
+    background-color: #ece6e6;
+    text-align: start;
+    font-family: nibpro2;
+    margin: 10px 0px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.landingPageBox2Button {
+    border: none;
+    background-color: black;
+    color: #ece6e6;
+    font-family: favorit;
+    font-weight: bold;
+    height: 6vh;
+    font-size: 1vw;
+    border-radius: 15px;
+    width: 8vw;
+}
+
+.landingPageBox3{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+.landingPageBox3Text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+    width: 50%;
+}
+.landingPageBox3Text>h1{
+    font-size: 4vw;
+    font-family: nibpro1;
+    letter-spacing: 2px;
+    
+}

@@ -52,16 +52,16 @@ export const Disease = () => {
         </div>
         <div className="app__disease-contentbox">
           <div className="app__disease-disease_heading">
-          Hypothetical Disease (HD)
+            Hypothetical Disease (HD)
           </div>
           <div className="app__disease-disease_sub_heading">
-          Overview:
+            Overview:
           </div>
           <div className="app__disease-content">
-          Hypothetical Disease (HD) is a fictitious ailment used for illustrative purposes in medical and health-related discussions. It does not exist in reality but is employed in hypothetical scenarios, medical case studies, and educational materials to simulate the process of diagnosing and managing diseases.
+            Hypothetical Disease (HD) is a fictitious ailment used for illustrative purposes in medical and health-related discussions. It does not exist in reality but is employed in hypothetical scenarios, medical case studies, and educational materials to simulate the process of diagnosing and managing diseases.
           </div>
         </div>
-          
+
       </div>
     </div>
   );
