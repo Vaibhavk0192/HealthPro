@@ -7,6 +7,9 @@ import { Medicine } from "./pages/MedicinePage/medicine";
 import {Footer} from "./components/Footer/footer"
 import Profile from "./pages/Profile/profile";
 import PatientDetails from "./pages/PatientDetails/patientDetails";
+import { AuthContextProvider } from "./context/AuthContext";
+import Register from "./pages/Register/register";
+import Login from "./pages/Login/login";
 
 function App() {
   return (
