@@ -46,7 +46,7 @@ export const AuthContextProvider = ({ children }) => {
 
     const { token } = data;
 
-    setUser(jwtDecode(token).username);
+    setUser(jwtDecode(token).sub);
     localStorage.setItem("token", JSON.stringify(token));
     navigate("/");
   };

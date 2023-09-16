@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
@@ -7,7 +7,7 @@ export const Navbar = () => {
   // Contains email of the logged in user otherwise null
   const { user } = useContext(AuthContext);
 
-  console.log(user);
+  useEffect(() => {}, [user]);
 
   return (
     <div className="landingPageBody">
