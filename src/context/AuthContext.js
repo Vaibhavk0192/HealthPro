@@ -9,9 +9,9 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
     if (localStorage.getItem("token")) {
       let token = JSON.parse(localStorage.getItem("token"));
-      let { username } = jwtDecode(token);
+      let { sub } = jwtDecode(token);
 
-      return username;
+      return sub;
     }
 
     axios.get("/api").then(({ data }) => {
@@ -24,8 +24,9 @@ export const AuthContextProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const login = async (email, password) => {
-    const { data } = await axios.post("/login", {
+    const { data } = await axios.post("/api/login", {
       email,
+      //   name,
       password,
     });
 
@@ -37,7 +38,7 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const register = async (name, email, password) => {
-    const { data } = await axios.post("/register", {
+    const { data } = await axios.post("/api/register", {
       name,
       email,
       password,
