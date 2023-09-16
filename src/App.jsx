@@ -6,6 +6,8 @@ import { Disease } from "./pages/DiseasePage/disease";
 import { Medicine } from "./pages/MedicinePage/medicine";
 import Profile from "./pages/Profile/profile";
 import PatientDetails from "./pages/PatientDetails/patientDetails";
+import Register from "./pages/Register/register";
+import Login from "./pages/Login/login";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
             <Route path="/profile" element={<Profile/>}/>
             <Route path="/users/:userId" component={<Profile/>} />
             <Route path="/patientDetails" element={<PatientDetails />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </main>
         </BrowserRouter>
