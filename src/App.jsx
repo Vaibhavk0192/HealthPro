@@ -4,6 +4,7 @@ import { Navbar } from "./components/Navbar/navbar";
 import { Home } from "./pages/HomePage/home";
 import { Disease } from "./pages/DiseasePage/disease";
 import { Medicine } from "./pages/MedicinePage/medicine";
+import {Footer} from "./components/Footer/footer"
 import Profile from "./pages/Profile/profile";
 import PatientDetails from "./pages/PatientDetails/patientDetails";
 
@@ -11,7 +12,6 @@ function App() {
   return (
 
       <div className="App">
-        
         <BrowserRouter>
         <header>
           <Navbar />
@@ -25,6 +25,7 @@ function App() {
             <Route path="/users/:userId" component={<Profile/>} />
             <Route path="/patientDetails" element={<PatientDetails />} />
           </Routes>
+          <Footer />
         </main>
         </BrowserRouter>
         </div>
