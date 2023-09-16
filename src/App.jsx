@@ -6,29 +6,29 @@ import { Disease } from "./pages/DiseasePage/disease";
 import { Medicine } from "./pages/MedicinePage/medicine";
 import Profile from "./pages/Profile/profile";
 import PatientDetails from "./pages/PatientDetails/patientDetails";
+import { AuthContextProvider } from "./context/AuthContext";
 
 function App() {
   return (
-
-      <div className="App">
-        
-        <BrowserRouter>
-        <header>
-          <Navbar />
-        </header>
-        <main>    
-          <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/disease" element={<Disease/>}/>
-            <Route path="/medicine" element={<Medicine/>}/>
-            <Route path="/profile" element={<Profile/>}/>
-            <Route path="/users/:userId" component={<Profile/>} />
-            <Route path="/patientDetails" element={<PatientDetails />} />
-          </Routes>
-        </main>
-        </BrowserRouter>
-        </div>
-
+    <div className="App">
+      <BrowserRouter>
+        <AuthContextProvider>
+          <header>
+            <Navbar />
+          </header>
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/disease" element={<Disease />} />
+              <Route path="/medicine" element={<Medicine />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/users/:userId" component={<Profile />} />
+              <Route path="/patientDetails" element={<PatientDetails />} />
+            </Routes>
+          </main>
+        </AuthContextProvider>
+      </BrowserRouter>
+    </div>
   );
 }
 
