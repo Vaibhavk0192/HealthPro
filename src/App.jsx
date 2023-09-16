@@ -4,6 +4,7 @@ import { Navbar } from "./components/Navbar/navbar";
 import { Home } from "./pages/HomePage/home";
 import { Disease } from "./pages/DiseasePage/disease";
 import { Medicine } from "./pages/MedicinePage/medicine";
+import {Footer} from "./components/Footer/footer"
 import Profile from "./pages/Profile/profile";
 import PatientDetails from "./pages/PatientDetails/patientDetails";
 import { AuthContextProvider } from "./context/AuthContext";
@@ -12,27 +13,26 @@ import Login from "./pages/Login/login";
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <AuthContextProvider>
-          <header>
-            <Navbar />
-          </header>
-          <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/disease" element={<Disease />} />
-              <Route path="/medicine" element={<Medicine />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/users/:userId" component={<Profile />} />
-              <Route path="/patientDetails" element={<PatientDetails />} />
-              <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
+
+      <div className="App">
+        <BrowserRouter>
+        <header>
+          <Navbar />
+        </header>
+        <main>    
+          <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/disease" element={<Disease/>}/>
+            <Route path="/medicine" element={<Medicine/>}/>
+            <Route path="/profile" element={<Profile/>}/>
+            <Route path="/users/:userId" component={<Profile/>} />
+            <Route path="/patientDetails" element={<PatientDetails />} />
           </Routes>
-          </main>
-        </AuthContextProvider>
-      </BrowserRouter>
-    </div>
+          <Footer />
+        </main>
+        </BrowserRouter>
+        </div>
+
   );
 }
 
