@@ -27,8 +27,8 @@ function App() {
               <Route path="/users/:userId" component={<Profile />} />
               <Route path="/patientDetails" element={<PatientDetails />} />
               <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
+              <Route path="/login" element={<Login />} />
+            </Routes>
           </main>
         </AuthContextProvider>
       </BrowserRouter>

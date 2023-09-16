@@ -1,8 +1,8 @@
 import axiosBase from "axios";
 
 const axios = axiosBase.create({
-  baseURL: "https://medicak-kiosk.onrender.com",
-  //   baseURL: "http://localhost:8000",
+  //   baseURL: "https://medicak-kiosk.onrender.com",
+  baseURL: "http://localhost:8000",
   headers: {
     "Content-Type": "application/json",
   },
