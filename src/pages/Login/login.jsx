@@ -4,18 +4,15 @@ import "./login.css";
 import arrow from "../../images/arrow.png"
 
 function Login() {
-  const [formData, setFormData] = useState({
-    patientName: "",
-    dob: "",
-    gender: "",
-    phoneNo: "",
+  const [loginformData, setLoginFormData] = useState({
     email: "",
+    password: ""
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setLoginFormData({
+      ...loginformData,
       [name]: value,
     });
   };
@@ -24,14 +21,11 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("/api/save_patient", formData);
+      const response = await axios.post("/api/logindata", loginformData);
       console.log(response.data);
-      setFormData({
-        patientName: "",
-        dob: "",
-        gender: "",
-        phoneNo: "",
+      setLoginFormData({
         email: "",
+        password: ""
       });
     } catch (error) {
       console.error("Error saving patient:", error);
@@ -77,7 +71,7 @@ function Login() {
               placeholder="Enter Email"
                 type="email"
                 name="email"
-                value={formData.email}
+                value={loginformData.email}
                 onChange={handleChange}
               />
             </div>
@@ -87,7 +81,7 @@ function Login() {
               placeholder="Enter Password"
                 type="password"
                 name="password"
-                value={formData.email}
+                value={loginformData.password}
                 onChange={handleChange}
               />
             </div>

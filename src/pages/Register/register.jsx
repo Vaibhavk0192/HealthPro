@@ -4,18 +4,16 @@ import "./register.css";
 import arrow from "../../images/arrow.png"
 
 function Register() {
-  const [formData, setFormData] = useState({
-    patientName: "",
-    dob: "",
-    gender: "",
-    phoneNo: "",
+  const [registerformData, setRegisterFormData] = useState({
+    name: "",
     email: "",
+    password: ""
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setRegisterFormData({
+      ...registerformData,
       [name]: value,
     });
   };
@@ -24,14 +22,12 @@ function Register() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("/api/save_patient", formData);
+      const response = await axios.post("/api/registerdata", registerformData);
       console.log(response.data);
-      setFormData({
-        patientName: "",
-        dob: "",
-        gender: "",
-        phoneNo: "",
+      setRegisterFormData({
+        name: "",
         email: "",
+        password: ""
       });
     } catch (error) {
       console.error("Error saving patient:", error);
@@ -76,7 +72,7 @@ function Register() {
               placeholder="Enter Name"
                 type="name"
                 name="name"
-                value={formData.email}
+                value={registerformData.name}
                 onChange={handleChange}
               />
             </div>
@@ -86,7 +82,7 @@ function Register() {
               placeholder="Enter Email"
                 type="email"
                 name="email"
-                value={formData.email}
+                value={registerformData.email}
                 onChange={handleChange}
               />
             </div>
@@ -96,7 +92,7 @@ function Register() {
               placeholder="Enter Password"
                 type="password"
                 name="password"
-                value={formData.email}
+                value={registerformData.password}
                 onChange={handleChange}
               />
             </div>
