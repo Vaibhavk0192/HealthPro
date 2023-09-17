@@ -3,7 +3,8 @@ import "./home.css";
 import axios from "axios";
 import UserLink from "../../components/userLink";
 import { Footer } from "../../components/Footer/footer";
-import { Chatbot } from "../Chatbot/chatbot.jsx";
+import Chatbot from "../Chatbot/chatbot.jsx"
+
 // import { Chatbot } from "../Chatbot/chatbot";
 
 function LandingPage() {
@@ -103,7 +104,7 @@ export const Home = () => {
       </div>
       <div className="spacingLandingPage"></div>
       <Footer />
-      {/* <Chatbot /> */}
+
     </div>
   );
 };

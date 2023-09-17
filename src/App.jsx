@@ -10,6 +10,7 @@ import PatientDetails from "./pages/PatientDetails/patientDetails";
 import { AuthContextProvider } from "./context/AuthContext";
 import Register from "./pages/Register/register";
 import Login from "./pages/Login/login";
+import Chatbot from "./pages/Chatbot/chatbot.jsx"
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
               <Route path="/patientDetails" element={<PatientDetails />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/chatbot" element={<Chatbot />} />
+
             </Routes>
           </main>
         </AuthContextProvider>

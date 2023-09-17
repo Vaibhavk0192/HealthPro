@@ -28,7 +28,12 @@ export const Navbar = () => {
           </li>
           <li>
             <Link to="/disease" className="navBarLinks">
-              Seach Disease
+              Search Disease
+            </Link>
+          </li>
+          <li>
+            <Link to="/chatbot" className="navBarLinks">
+              Chat
             </Link>
           </li>
           {/* <li><Link to="/profile" className="navBarLinks">Profile</Link></li> */}

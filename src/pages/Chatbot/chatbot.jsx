@@ -1,130 +1,109 @@
-import React, { useState, useEffect, useRef } from 'react';
-import "./chatbot.css"
+import { useState } from 'react'
+import './chatbot.css'
+import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
+import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
-export const Chatbot = () => {
-  const [showChatbot, setShowChatbot] = useState(true);
-  const [userMessage, setUserMessage] = useState('');
-  const chatboxRef = useRef(null);
-  const chatInputRef = useRef(null);
+const API_KEY = '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';
+const API_URL = 'https://api.openai.com/v1/chat/completions';
+// "Explain things like you would to a 10 year old learning how to code."
+const systemMessage = { //  Explain things like you're talking to a software professional with 5 years of experience.
+  "role": "system", "content": "You are a helpful AI chatbot ready to help customers with medical info."
+}
 
-  useEffect(() => {
-    chatboxRef.current.scrollTo(0, chatboxRef.current.scrollHeight);
-  }, [userMessage]);
-
-  const createChatLi = (message, className) => {
-    return (
-      <li className={`chat ${className}`}>
-        {className === 'outgoing' ? null : (
-          <>
-            <span className="material-symbols-outlined">smart_toy</span>
-            <p></p>
-          </>
-        )}
-        <p>{message}</p>
-      </li>
-    );
-  };
-
-  const generateResponse = async () => {
-    const API_KEY = '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';
-    const API_URL = 'https://api.openai.com/v1/chat/completions';
-    const messageElement = chatboxRef.current.querySelector('li.incoming p');
-
-    try {
-      const requestOptions = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${API_KEY}`,
-        },
-        body: JSON.stringify({
-          model: 'gpt-3.5-turbo',
-          messages: [{ role: 'user', content: userMessage }],
-        }),
-      };
-
-      const response = await fetch(API_URL, requestOptions);
-      const data = await response.json();
-      const responseMessage = data.choices[0].message.content.trim();
-      messageElement.textContent = responseMessage;
-    } catch (error) {
-      messageElement.classList.add('error');
-      messageElement.textContent = 'Oops! Something went wrong. Please try again.';
-    } finally {
-      chatboxRef.current.scrollTo(0, chatboxRef.current.scrollHeight);
+function Chatbot() {
+  const [messages, setMessages] = useState([
+    {
+      message: "Hello,How may i help you?",
+      sentTime: "just now",
+      sender: "ChatGPT"
     }
+  ]);
+  const [isTyping, setIsTyping] = useState(false);
+
+  const handleSend = async (message) => {
+    const newMessage = {
+      message,
+      direction: 'outgoing',
+      sender: "user"
+    };
+
+    const newMessages = [...messages, newMessage];
+    
+    setMessages(newMessages);
+
+    // Initial system message to determine ChatGPT functionality
+    // How it responds, how it talks, etc.
+    setIsTyping(true);
+    await processMessageToChatGPT(newMessages);
   };
 
-  const handleChat = () => {
-    const trimmedMessage = userMessage.trim();
-    if (!trimmedMessage) return;
+  async function processMessageToChatGPT(chatMessages) { // messages is an array of messages
+    // Format messages for chatGPT API
+    // API is expecting objects in format of { role: "user" or "assistant", "content": "message here"}
+    // So we need to reformat
 
-    setUserMessage('');
-    chatInputRef.current.style.height = '55px';
+    let apiMessages = chatMessages.map((messageObject) => {
+      let role = "";
+      if (messageObject.sender === "ChatGPT") {
+        role = "assistant";
+      } else {
+        role = "user";
+      }
+      return { role: role, content: messageObject.message}
+    });
 
-    const chatbox = chatboxRef.current;
-    chatbox.appendChild(createChatLi(trimmedMessage, 'outgoing'));
-    chatbox.scrollTo(0, chatbox.scrollHeight);
 
-    setTimeout(() => {
-      const incomingChatLi = createChatLi('Thinking...', 'incoming');
-      chatbox.appendChild(incomingChatLi);
-      chatbox.scrollTo(0, chatbox.scrollHeight);
-      generateResponse();
-    }, 600);
-  };
-
-  const handleInputChange = (e) => {
-    chatInputRef.current.style.height = '55px';
-    chatInputRef.current.style.height = `${chatInputRef.current.scrollHeight}px`;
-    setUserMessage(e.target.value);
-  };
-
-  const handleInputKeyDown = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey && window.innerWidth > 800) {
-      e.preventDefault();
-      handleChat();
+    // Get the request body set up with the model we plan to use
+    // and the messages which we formatted above. We add a system message in the front to'
+    // determine how we want chatGPT to act. 
+    const apiRequestBody = {
+      "model": "gpt-3.5-turbo",
+      "messages": [
+        systemMessage,  // The system message DEFINES the logic of our chatGPT
+        ...apiMessages // The messages from our chat with ChatGPT
+      ]
     }
-  };
 
-  const toggleChatbot = () => {
-    setShowChatbot(!showChatbot);
-  };
+    await fetch("https://api.openai.com/v1/chat/completions", 
+    {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer " + API_KEY,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(apiRequestBody)
+    }).then((data) => {
+      return data.json();
+    }).then((data) => {
+      console.log(data);
+      setMessages([...chatMessages, {
+        message: data.choices[0].message.content,
+        sender: "ChatGPT"
+      }]);
+      setIsTyping(false);
+    });
+  }
 
   return (
-    <div className={`chatbot ${showChatbot ? 'show-chatbot' : ''}`}>
-      <button className="chatbot-toggler" onClick={toggleChatbot}>
-        <span className="material-symbols-rounded">chat</span>
-        <span className="material-symbols-outlined">close</span>
-      </button>
-      <div className="chatbot">
-        <header>
-          <h2>Chatbot</h2>
-          <span className="close-btn material-symbols-outlined" onClick={toggleChatbot}>
-            close
-          </span>
-        </header>
-        <ul className="chatbox" ref={chatboxRef}>
-          <li className="chat incoming">
-            <span className="material-symbols-outlined">smart_toy</span>
-            <p>Hi there 👋<br />How can I help you today?</p>
-          </li>
-        </ul>
-        <div className="chat-input">
-          <textarea
-            placeholder="Enter a message..."
-            spellCheck="false"
-            required
-            ref={chatInputRef}
-            value={userMessage}
-            onChange={handleInputChange}
-            onKeyDown={handleInputKeyDown}
-          ></textarea>
-          <span id="send-btn" className="material-symbols-rounded" onClick={handleChat}>
-            send
-          </span>
-        </div>
+    <div className="Chatbot">
+      <div style={{ position:"relative", height: "600px", width: "100%"  }}>
+        <MainContainer>
+          <ChatContainer>       
+            <MessageList 
+              scrollBehavior="smooth" 
+              typingIndicator={isTyping ? <TypingIndicator content="ChatGPT is typing" /> : null}
+            >
+              {messages.map((message, i) => {
+                console.log(message)
+                return <Message key={i} model={message} />
+              })}
+            </MessageList>
+            <MessageInput placeholder="Type message here" onSend={handleSend} />        
+          </ChatContainer>
+        </MainContainer>
       </div>
     </div>
-  );
-};
+  )
+}
+
+export default Chatbot
