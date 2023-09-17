@@ -46,7 +46,7 @@ export const Home = () => {
               affordable monthly payment options
             </div>
             <div className="genInfoBoxRoller">
-              <div>Discover Prima</div>
+              <div>Discover HealthPro</div>
             </div>
           </div>
         </div>

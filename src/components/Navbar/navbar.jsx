@@ -23,7 +23,7 @@ export const Navbar = () => {
           </li>
           <li>
             <Link to="/medicine" className="navBarLinks">
-              Seach Medicine
+              Search Medicine
             </Link>
           </li>
           <li>
@@ -39,7 +39,7 @@ export const Navbar = () => {
           {/* <li><Link to="/profile" className="navBarLinks">Profile</Link></li> */}
           <li>
             <Link to="/PatientDetails" className="navBarLinks">
-              About
+              Details
             </Link>
           </li>
         </ul>
